@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# init FPGA's update file and add execute permissions
+FPGA=vtsc_694_top-600W.bin
+chmod a+x $FPGA
+
 echo kill process
 echo ...
 pkill Traffic
@@ -15,7 +19,7 @@ echo .
 # upgrade FPGA
 echo To upgrade the FPGA
 echo ...
-./fpga_flash_default_bin.out vtsc_694_top3msvn.bin
+./fpga_flash_default_bin.out $FPGA
 echo FPGA upgrade sucess!!!
 
 echo .
@@ -35,7 +39,7 @@ do
 		echo FPGA upgrade sucess! delete files
 		echo ...
 		rm -rf update_FPGA*.sh
-		rm -rf vtsc_694_top.bin
+		rm -rf $FPGA
 		echo delete sucess !
 		echo update_FPGA.sh running over !!!
 		break

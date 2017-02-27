@@ -1,5 +1,9 @@
 #!/bin/bash
 
+#初始化FPGA升级程序名及增加执行权限
+FPGA=vtsc_694_top-600W.bin
+chmod a+x $FPGA
+
 echo 杀死相机进程，提高升级成功率
 echo ...
 pkill Traffic
@@ -15,7 +19,7 @@ echo .
 # 升级FPGA
 echo 开始升级FPGA程序
 echo ...
-./fpga_flash_default_bin.out vtsc_694_top.bin
+./fpga_flash_default_bin.out $FPGA
 echo FPGA升级完毕，请检查是否升级成功!!!
 
 echo .
@@ -34,7 +38,7 @@ do
 		echo 确认FPGA升级成功，删除升级文件
 		echo ...
 		rm -rf update_FPGA*.sh
-		rm -rf vtsc_694_top.bin
+		rm -rf $FPGA
 		echo 删除成功！
 		echo 脚本运行结束！！！
 		break
