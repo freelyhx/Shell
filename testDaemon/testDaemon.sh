@@ -15,8 +15,21 @@ daemonProcess(){
 
 	oldPID=$(top -n 1 | grep $* | awk '{print $1}')
 	pkill $*
-	sleep 50
-	newPID=$(top -n 1 | grep $* | awk '{print $1}')
+	
+	while 1
+	do
+		top -n 1 | grep $*
+		status=$?
+		if [ status == 0 ]
+		then
+			newPID=$(top -n 1 | grep $* | awk '{print $1}')
+			break
+		fi
+	done
+	
+	# sleep 50
+	
+	# newPID=$(top -n 1 | grep $* | awk '{print $1}')
 	
 	if [ $oldPID != $newPID ]
 	then
@@ -32,7 +45,7 @@ daemonProcess(){
 }
 
 daemonProcess NvrServer
-daemonProcess OperateServer
-daemonProcess IVE_update
-daemonProcess appweb
+# daemonProcess OperateServer
+# daemonProcess IVE_update
+# daemonProcess appweb
 
