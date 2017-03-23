@@ -1,7 +1,15 @@
 #!/bin/bash
 
+#-----------------------------------------------------------
+# filename:update_FPGA_english.sh
+# version:1.3
+# date:2017/03/22
+# author:yangql
+# program:upgrade FPGA
+#-----------------------------------------------------------
+
 # init FPGA's update file and add execute permissions
-FPGA=vtsc_694_top-600W.bin
+FPGA=fpga_0227_led.bin
 chmod a+x $FPGA
 
 echo kill process

@@ -1,5 +1,14 @@
 #!/bin/bash
 
+#-----------------------------------------------------------
+# filename:shouhu.sh
+# version:1.0
+# date:2017/02/10
+# author:yangql
+# program:守护程序，守护进程PRO_NAME
+#-----------------------------------------------------------
+
+
 #定义被守护进程名
 PRO_NAME=test.sh
 LOCAL_PATH=/home/vion/shell/

@@ -1,5 +1,13 @@
 #!/bin/bash
 
+#-----------------------------------------------------------
+# filename:update_FPGA_chinese.sh
+# version:1.3
+# date:2017/03/22
+# author:yangql
+# program:升级FPGA程序
+#-----------------------------------------------------------
+
 #初始化FPGA升级程序名及增加执行权限
 FPGA=vtsc_694_top-600W.bin
 chmod a+x $FPGA
