@@ -2,8 +2,8 @@
 
 #-----------------------------------------------------------
 # filename:update_FPGA_chinese.sh
-# version:1.3
-# date:2017/03/22
+# version:1.5
+# date:2017/03/27
 # author:yangql
 # program:升级FPGA程序
 #-----------------------------------------------------------
@@ -11,6 +11,7 @@
 #初始化FPGA升级程序名及增加执行权限
 FPGA=vtsc_694_top-600W.bin
 chmod a+x $FPGA
+FLASH=$(ls fpga_flash_default_bin*)
 
 echo 杀死相机进程，提高升级成功率
 echo ...
@@ -27,7 +28,7 @@ echo .
 # 升级FPGA
 echo 开始升级FPGA程序
 echo ...
-./fpga_flash_default_bin.out $FPGA
+./$FLASH $FPGA
 echo FPGA升级完毕，请检查是否升级成功!!!
 
 echo .

@@ -2,8 +2,8 @@
 
 #-----------------------------------------------------------
 # filename:update_FPGA_english.sh
-# version:1.3
-# date:2017/03/22
+# version:1.5
+# date:2017/03/27
 # author:yangql
 # program:upgrade FPGA
 #-----------------------------------------------------------
@@ -11,6 +11,7 @@
 # init FPGA's update file and add execute permissions
 FPGA=fpga_0227_led.bin
 chmod a+x $FPGA
+FLASH=$(ls fpga_flash_default_bin*)
 
 echo kill process
 echo ...
@@ -27,7 +28,7 @@ echo .
 # upgrade FPGA
 echo To upgrade the FPGA
 echo ...
-./fpga_flash_default_bin.out $FPGA
+./$FLASH $FPGA
 echo FPGA upgrade sucess!!!
 
 echo .
@@ -37,8 +38,8 @@ echo .
 # Delete the upgrade file after a successful upgrade
 b="y"
 c="n"
-echo Please make sure the FPGA upgrade sucess or failed，sucess input:y，failed input:n
-echo please input [y/n]：
+echo Please make sure the FPGA upgrade sucess or failed, sucess input:y, failed input:n
+echo please input [y/n]:
 while true
 do
 	read a
@@ -56,6 +57,6 @@ do
 		echo upgrade failed,please running update_FPGA.sh again !!!
 		break
 	else
-		echo input error! Please input again：
+		echo input error! Please input again:
 	fi
 done
