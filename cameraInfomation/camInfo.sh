@@ -18,3 +18,6 @@ CACHED=$(egrep Mem /tmp/top.log | awk '{printf $10}')
 
 printf "%-10s %-10s %-10s %-10s %-10s %-10s\n" VSZ CPU USED FREE CACHED TEMP
 printf "%-10s %-10s %-10s %-10s %-10s %-10i\n" $VSZ $CPU $USED $FREE $CACHED $TEMP
+
+printf "\nsystem.log:\n"
+tail /sdcard/data/system.log
