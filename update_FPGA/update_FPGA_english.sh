@@ -9,7 +9,7 @@
 #-----------------------------------------------------------
 
 # init FPGA's update file and add execute permissions
-FPGA=fpga_0227_led.bin
+FPGA=vtsc_694_top600ws20325.bin
 chmod a+x $FPGA
 FLASH=$(ls fpga_flash_default_bin*)
 
@@ -36,14 +36,12 @@ echo .
 echo .
 
 # Delete the upgrade file after a successful upgrade
-b="y"
-c="n"
 echo Please make sure the FPGA upgrade sucess or failed, sucess input:y, failed input:n
 echo please input [y/n]:
 while true
 do
 	read a
-	if [ $a = $b ]
+	if [ $a = "y" ]
 	then
 		echo FPGA upgrade sucess! delete files
 		echo ...
@@ -52,7 +50,7 @@ do
 		echo delete sucess !
 		echo update_FPGA.sh running over !!!
 		break
-	elif [ $a = $c ]
+	elif [ $a = "n" ]
 	then
 		echo upgrade failed,please running update_FPGA.sh again !!!
 		break
